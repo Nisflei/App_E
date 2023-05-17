@@ -35,11 +35,15 @@ jobs:
         cd src
         java -cp . Teste
         
+    #Exemplo 1 para versionamento
+    - name: Gerando Versão
+      run: echo ${{ github.run_number }} 
+    
     - uses: mr-smithers-excellent/docker-build-push@v6
       name: Push Docker image
       with:
         image: nisflei/app_e
-        tags: latest
+        tags: latest, ${{ github.run_number }}
         registry: docker.io
         dockerfile: dockerfile
         username: ${{ secrets.DOCKER_USERNAME }}
