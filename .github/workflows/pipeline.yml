@@ -43,7 +43,7 @@ jobs:
       name: Push Docker image
       with:
         image: nisflei/app_e
-        tags: latest, ${{ github.run_number }}
+        tags: QA-v1.:${{ github.run_number }}
         registry: docker.io
         dockerfile: dockerfile
         username: ${{ secrets.DOCKER_USERNAME }}
